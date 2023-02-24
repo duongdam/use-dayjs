@@ -1,4 +1,3 @@
-"use strict";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import timezone from "dayjs/plugin/timezone";
@@ -29,8 +28,8 @@ const djsTzFormat = (aTime, format = "YYYY-MM-DD H:mm:ss A Z", tz) => {
 };
 const djsGTM = (timezone2) => {
   let result;
-  const tz = timezone2 ? +djsTzFormat(new Date(), "ZZ", timezone2) / 100 : +djsFormat(new Date(), "ZZ") / 100;
-  const isInt = Number.isInteger(tz);
+    const tz = timezone2 ? +djsTzFormat(/* @__PURE__ */ new Date(), "ZZ", timezone2) / 100 : +djsFormat(/* @__PURE__ */ new Date(), "ZZ") / 100;
+    const isInt = Number.isInteger(tz);
   if (!isInt) {
     result = `${`${tz}`.replace(".", ":")}0`;
     result = ["-", "+"].includes(`${result}`.charAt(0)) ? `${result}` : `+${result}`;

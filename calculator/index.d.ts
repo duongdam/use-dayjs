@@ -1,5 +1,5 @@
 import dayjs, { ConfigType, UnitType } from "dayjs";
-declare type SetProps = {
+type SetProps = {
     millisecond?: number;
     second?: number;
     minute?: number;

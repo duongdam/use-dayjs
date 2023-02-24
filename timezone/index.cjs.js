@@ -20,10 +20,14 @@ var __copyProps = (to, from, except, desc) => {
     }
     return to;
 };
-var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", {
-    value: mod,
-    enumerable: true
-}) : target, mod));
+var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+    // If the importer is in node compatibility mode or this is not an ESM
+    // file that has been converted to a CommonJS file using a Babel-
+    // compatible transform (i.e. "__esModule" has not been set), then set
+    // "default" to the CommonJS "module.exports" for node compatibility.
+    isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", {value: mod, enumerable: true}) : target,
+    mod
+));
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", {value: true}), mod);
 var timezone_exports = {};
 __export(timezone_exports, {
@@ -64,7 +68,7 @@ const djsTzFormat = (aTime, format = "YYYY-MM-DD H:mm:ss A Z", tz) => {
 };
 const djsGTM = (timezone2) => {
     let result;
-    const tz = timezone2 ? +djsTzFormat(new Date(), "ZZ", timezone2) / 100 : +djsFormat(new Date(), "ZZ") / 100;
+    const tz = timezone2 ? +djsTzFormat(/* @__PURE__ */ new Date(), "ZZ", timezone2) / 100 : +djsFormat(/* @__PURE__ */ new Date(), "ZZ") / 100;
     const isInt = Number.isInteger(tz);
     if (!isInt) {
         result = `${`${tz}`.replace(".", ":")}0`;

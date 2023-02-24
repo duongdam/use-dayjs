@@ -1,4 +1,3 @@
-"use strict";
 import * as calculator from "./calculator";
 import * as display from "./display";
 import * as locale from "./locale";
